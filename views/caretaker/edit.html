@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Editar Cuidador</h1>
+<form method="POST" action="{{ url_for('caretaker.edit', id=caretaker.id) }}">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" value="{{ caretaker.name }}" required>
+    <label for="phone">Teléfono</label>
+    <input type="text" id="phone" name="phone" value="{{ caretaker.phone }}" required>
+    <label for="id_nursery">Guardería</label>
+    <input type="text" id="id_nursery" name="id_nursery" value="{{ caretaker.id_nursery }}" required>
+    <button type="submit">Actualizar</button>
+</form>
+<a href="{{ url_for('caretaker.index') }}" class="button-back">Volver</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Editar Perro</h1>
+<form method="POST" action="{{ url_for('dog.edit', id=dog.id) }}">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" value="{{ dog.name }}" required>
+    <label for="race">Raza</label>
+    <input type="text" id="race" name="race" value="{{ dog.race }}" required>
+    <label for="age">Edad</label>
+    <input type="number" id="age" name="age" value="{{ dog.age }}" required>
+    <label for="weight">Peso</label>
+    <input type="number" step="0.01" id="weight" name="weight" value="{{ dog.weight }}" required>
+    <label for="id_nursery">Guardería</label>
+    <input type="text" id="id_nursery" name="id_nursery" value="{{ dog.id_nursery }}" required>
+    <label for="id_caretaker">Cuidador</label>
+    <input type="text" id="id_caretaker" name="id_caretaker" value="{{ dog.id_caretaker }}" required>
+    <button type="submit">Actualizar</button>
+</form>
+<a href="{{ url_for('dog.index') }}" class="button-back">Volver</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    {% if welcome_message %}
+        <h2>{{ welcome_message }}</h2>
+    {% endif %}
+    <h1>Guardería de Mascotas</h1>
+    <div class="grid-container">
+        {% if current_user.is_authenticated %}
+            <div class="grid-item">
+                <form method="POST" action="{{ url_for('user.logout') }}">
+                    <button type="submit">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </form>
+            </div>
+        {% else %}
+            <div class="grid-item">
+                <form method="GET" action="{{ url_for('user.login') }}">
+                    <button type="submit">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Cuidadores</h1>
+<a href="{{ url_for('caretaker.create') }}" class="button-create">Crear Nuevo Cuidador</a>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for caretaker in caretakers %}
+        <tr>
+            <td>{{ caretaker.name }}</td>
+            <td>{{ caretaker.phone }}</td>
+            <td>
+                <form action="{{ url_for('caretaker.edit', id=caretaker.id) }}" method="GET" style="display:inline;">
+                    <button type="submit" class="button-edit">Editar</button>
+                </form>
+            </td>
+            <td>
+                <form action="{{ url_for('caretaker.delete', id=caretaker.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="button-delete">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('user.admin_dashboard') }}" class="button-back">Volver</a>
+{% endblock %}

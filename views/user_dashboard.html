@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    {% if welcome_message %}
+        <h2>{{ welcome_message }}</h2>
+    {% endif %}
+    <h1>Guardería de Mascotas</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <form method="POST" action="{{ url_for('user.logout') }}">
+                <button type="submit">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

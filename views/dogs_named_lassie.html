@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Perros llamados Lassie</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Nombre Mascota</th>
+            <th>Raza Mascota</th>
+            <th>Edad Mascota</th>
+            <th>Peso Mascota</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dog in dogs %}
+        <tr>
+            <td>{{dog.name}}</td>
+            <td>{{dog.race}}</td>
+            <td>{{dog.age}}</td>
+            <td>{{dog.weight}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('user.admin_dashboard') }}" class="button-back">Volver</a>
+{% endblock %}

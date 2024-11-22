@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Perros</h1>
+<a href="{{ url_for('dog.create') }}" class="button-create">Crear Nuevo Perro</a>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Raza</th>
+            <th>Edad</th>
+            <th>Peso (Kg)</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dog in dogs %}
+        <tr>
+            <td>{{ dog.name }}</td>
+            <td>{{ dog.race }}</td>
+            <td>{{ dog.age }}</td>
+            <td>{{ dog.weight }}</td>
+            <td>
+                <form action="{{ url_for('dog.edit', id=dog.id) }}" method="GET" style="display:inline;">
+                    <button type="submit" class="button-edit">Editar</button>
+                </form>
+            </td>
+            <td>
+                <form action="{{ url_for('dog.delete', id=dog.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="button-delete">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('user.admin_dashboard') }}" class="button-back">Volver</a>
+{% endblock %}

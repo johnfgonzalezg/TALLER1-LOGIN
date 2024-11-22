@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    {% if welcome_message %}
+        <h2>{{ welcome_message }}</h2>
+    {% endif %}
+    <h1>Guardería de Mascotas</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <form method="GET" action="{{ url_for('nursery.index') }}">
+                <button type="submit">
+                    <i class="fas fa-dog"></i>
+                    Gestión de Guarderías
+                </button>
+            </form>
+        </div>
+        <div class="grid-item">
+            <form method="GET" action="{{ url_for('caretaker.index') }}">
+                <button type="submit">
+                    <i class="fas fa-user"></i>
+                    Gestión de Cuidadores
+                </button>
+            </form>
+        </div>
+        <div class="grid-item">
+            <form method="GET" action="{{ url_for('dog.index') }}">
+                <button type="submit">
+                    <i class="fas fa-paw"></i>
+                    Gestión de Perros
+                </button>
+            </form>
+        </div>
+        <div class="grid-item">
+            <form method="GET" action="{{ url_for('dog.get_dogs_named_lassie') }}">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                    Ver Perros llamados Lassie
+                </button>
+            </form>
+        </div>
+        <div class="grid-item">
+            <form method="GET" action="{{ url_for('nursery.get_la_favorita_details') }}">
+                <button type="submit">
+                    <i class="fas fa-info-circle"></i>
+                    Ver Detalles de la Guardería 'La Favorita'
+                </button>
+            </form>
+        </div>
+        <div class="grid-item">
+            <form method="POST" action="{{ url_for('dog.assign_mario_to_small_dogs') }}">
+                <button type="submit">
+                    <i class="fas fa-tasks"></i>
+                    Asignar Perros Pequeños a Mario
+                </button>
+            </form>
+        </div>
+        <div class="grid-item">
+            <form method="POST" action="{{ url_for('user.logout') }}">
+                <button type="submit">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Editar Guardería</h1>
+<form method="POST" action="{{ url_for('nursery.edit', id=nursery.id) }}">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" value="{{ nursery.name }}" required>
+    <label for="direction">Dirección</label>
+    <input type="text" id="direction" name="direction" value="{{ nursery.direction }}" required>
+    <label for="phone">Teléfono</label>
+    <input type="text" id="phone" name="phone" value="{{ nursery.phone }}" required>
+    <button type="submit">Actualizar</button>
+</form>
+<a href="{{ url_for('nursery.index') }}" class="button-back">Volver</a>
+{% endblock %}

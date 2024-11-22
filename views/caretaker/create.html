@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Crear Nuevo Cuidador</h1>
+<form method="POST" action="{{ url_for('caretaker.create') }}">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" required>
+    <label for="phone">Teléfono</label>
+    <input type="text" id="phone" name="phone" required>
+    <label for="id_nursery">Guardería</label>
+    <input type="text" id="id_nursery" name="id_nursery" required>
+    <button type="submit">Crear</button>
+</form>
+<a href="{{ url_for('caretaker.index') }}" class="button-back">Volver</a>
+{% endblock %}
